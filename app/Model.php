@@ -40,7 +40,13 @@ abstract class Model
      */
     public function getOne()
     {
-        $sql = "SELECT * FROM " . $this->table . " WHERE id=" . $this->id;
+        $cle_recherchee = "";
+        $tab_cles = array();
+        foreach ($this->id as $key => $value) {
+            $tab_cles[] = $key . "=" . $value;
+        }
+        $cle_recherchee = implode(" AND ",  $tab_cles);
+        $sql = "SELECT * FROM " . $this->table . " WHERE " . $cle_recherchee;
         $query = $this->_connexion->prepare($sql);
         $query->execute();
         return $query->fetch();
