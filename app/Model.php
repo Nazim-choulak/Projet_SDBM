@@ -57,9 +57,12 @@ abstract class Model
      *
      * @return void
      */
-    public function getAll()
+    public function getAll(string $tri="")
     {
         $sql = "SELECT * FROM " . $this->table;
+        if ($tri != "") {
+            $sql .= " ORDER BY ".$tri;
+        }
         $query = $this->_connexion->prepare($sql);
         $query->execute();
         return $query->fetchAll();
