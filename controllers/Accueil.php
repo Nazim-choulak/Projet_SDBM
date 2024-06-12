@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Controller{
+class Accueil extends Controller{
 
     public function index(){
         $scriptJS = "$(document).ready(function() {
