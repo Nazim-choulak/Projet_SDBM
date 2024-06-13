@@ -1,4 +1,4 @@
-<h1>Suppression d'un Continent</h1>
+<h1 class= "text-center">Suppression d'un Continent</h1>
 <form action="<?= PATH ?>/continents/suppr_save/<?= $continents['ID_CONTINENT'] ?>" method="POST">
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-control" id="Id" placeholder="" name="Id" value=<?= $continents['ID_CONTINENT'] ?> readonly>

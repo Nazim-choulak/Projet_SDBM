@@ -1,4 +1,4 @@
-<h1>Ajouter un continent</h1>
+<h1 class= "text-center">Ajouter un continent</h1>
 
 <form action="<?= PATH ?>/continents/ajout_save" method="post">
     <div class="form-floating mb-3 mt-3">

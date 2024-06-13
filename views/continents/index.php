@@ -1,8 +1,8 @@
-<h1>Liste des Continents</h1>
+<h1 class= "text-center">Liste des Continents</h1>
 
-<a href="<?= PATH ?>/continents/ajout"><button type='button' class='btn btn-primary bi bi-plus-circle'>&nbsp;Ajouter</button></a>
-
-<table class="table table-dark table-hover">
+<a href="<?= PATH ?>/continents/ajout"><button type='button' class='btn btn-primary m-2 bi bi-plus-circle'>&nbsp;Ajouter</button></a><br>
+<div id="zone-affichage" class="container-fluid text-center">
+<table class="table table-hover">
     <tr>
         <th>Code</th>
         <th>Nom</th>
@@ -23,3 +23,5 @@
     <?php endforeach ?>
 
 </table>
+
+</div>

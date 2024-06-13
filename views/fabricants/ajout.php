@@ -1,4 +1,4 @@
-<h1>Ajouter un fabricant</h1>
+<h1 class= "text-center">Ajouter un fabricant</h1>
 
 <form action="<?= PATH ?>/fabricants/ajout_save" method="post">
     <div class="form-floating mb-3 mt-3">
