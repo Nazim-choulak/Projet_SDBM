@@ -1,4 +1,4 @@
-<h1>Suppression d'un fabricant</h1>
+<h1 class= "text-center">Suppression d'un fabricant</h1>
 <form action="<?= PATH ?>/fabricants/suppr_save/<?= $fabricants['ID_FABRICANT'] ?>" method="POST">
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-control" id="Id" placeholder="" name="Id" value=<?= $fabricants['ID_FABRICANT'] ?> readonly>

@@ -1,4 +1,4 @@
-<h1>Modification d'une Marque</h1>
+<h1 class= "text-center">Modification d'une Marque</h1>
 
 <form action="<?= PATH ?>/marques/modif_save/<?= $Marques['ID_MARQUE'] ?>" method="POST">
         <div class="form-floating mb-3 mt-3">

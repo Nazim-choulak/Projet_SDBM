@@ -1,4 +1,4 @@
-<h1>Ajout d'une Marque</h1>
+<h1 class= "text-center">Ajout d'une Marque</h1>
 <?php print_r($_REQUEST['Id_fabricant']) ?>
 <form action="<?= PATH ?>/marques/ajout_save" method="POST">
     <div class="form-floating mb-3 mt-3">

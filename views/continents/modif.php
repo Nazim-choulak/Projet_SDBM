@@ -1,4 +1,4 @@
-<h1>Modification d'un Continent</h1>
+<h1 class= "text-center">Modification d'un Continent</h1>
 
 <form action="<?= PATH ?>/continents/modif_save/<?= $continents['ID_CONTINENT'] ?>" method="POST">
 <div class="form-floating mb-3 mt-3">

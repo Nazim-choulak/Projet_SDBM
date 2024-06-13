@@ -1,8 +1,8 @@
-<h1>Liste des Fabricants</h1>
+<h1 class= "text-center">Liste des Fabricants</h1>
 
-<a href="<?= PATH ?>/fabricants/ajout"><button type='button' class='btn btn-primary bi bi-plus-circle'>&nbsp;Ajouter</button></a>
-
-<table class="table table-dark table-hover">
+<a href="<?= PATH ?>/fabricants/ajout"><button type='button' class='btn btn-primary m-2 bi bi-plus-circle'>&nbsp;Ajouter</button></a>
+<div id="zone-affichage" class="container-fluid text-center">
+<table class="table table-hover">
     <tr>
         <th>Code</th>
         <th>Nom</th>
@@ -23,3 +23,4 @@
     <?php endforeach ?>
 
 </table>
+</div>

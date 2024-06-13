@@ -1,3 +1,4 @@
+<h1 class= "text-center">Suppression d'une Marque</h1>
 <form action="<?= PATH ?>/marques/suppr_save/<?= $Marques['ID_MARQUE'] ?>" method="POST">
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-select" value=<?= $Marques['ID_MARQUE'] ?> name="Id" id="Id" readonly />
