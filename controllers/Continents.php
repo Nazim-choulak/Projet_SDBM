@@ -7,6 +7,7 @@ class Continents extends Controller
     {
         $this->loadModel('Continent');
         $continents = $this->Continent->getAll();
+     
         $this->render('index', compact('continents'));
     }
 
@@ -20,13 +21,31 @@ class Continents extends Controller
     {
         $nom = $_REQUEST['Nom'];
         $this->loadModel('Continent');
-        $this->Continent->insert($nom);
+        if (!empty($_REQUEST['Nom'])) {
+            $this->Continent->insert($nom);
+        }
         $continents = $this->Continent->getAll();
-        $message = 'Le continent a bien été ajouté';
-        $this->render('index', compact('continents', 'message'));
+        $scriptJS = "";
+        if (isset($_REQUEST['Nom']) && !empty($_REQUEST['Nom'])) {
+            $scriptJS = 'const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Le continent a bien été ajouté"
+              });';
+        }
+
+        $this->render('index', compact('continents', 'scriptJS'));
     }
-
-
 
     public function modif(int $id)
     {
@@ -35,7 +54,6 @@ class Continents extends Controller
             'ID_CONTINENT' => $id
         );
         $continents = $this->Continent->getOne();
-
         $this->render('modif', compact('continents'));
     }
 
@@ -43,11 +61,37 @@ class Continents extends Controller
     {
         $id = $_REQUEST['Id'];
         $nom = $_REQUEST['Nom'];
+
         $this->loadModel('Continent');
+        $this->Continent->id = array(
+            'ID_CONTINENT' => $id
+        );
+        $continents = $this->Continent->getOne();
+        $AvModif = $continents['NOM_CONTINENT'];
+        $scriptJS = "";
         $this->Continent->update($id, $nom);
         $continents = $this->Continent->getAll();
-        $message = 'Le continent a bien été modifié';
-        $this->render('index', compact('continents', 'message'));
+
+        if (isset($_REQUEST['Nom']) && !empty($_REQUEST['Nom']) && ($AvModif != $nom)) {
+            
+            $scriptJS = 'const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "succes",
+                title: "Le continent a bien été modifié"
+              });';
+        }
+        
+        $this->render('index', compact('continents', 'scriptJS'));
     }
 
     public function suppr(int $id)
@@ -66,7 +110,23 @@ class Continents extends Controller
         $this->loadModel('Continent');
         $this->Continent->delete($id);
         $continents = $this->Continent->getAll();
-        $message = 'Le continent a bien été supprimé';
-        $this->render('index', compact('continents', 'message'));
+        if (isset($_REQUEST['Nom'])) {
+            $scriptJS = 'const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Le continent a bien été supprimé"
+              });';
+        }
+        $this->render('index', compact('continents', 'scriptJS'));
     }
 }

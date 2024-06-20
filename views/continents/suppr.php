@@ -10,5 +10,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Enregistrer</button>
-    <a href="<?= PATH ?>/continents"><button class="btn btn-warning">Retour à la liste</button></a>
 </form>
+<a href="<?= PATH ?>/continents"><button class="btn btn-warning">Retour à la liste</button></a>
